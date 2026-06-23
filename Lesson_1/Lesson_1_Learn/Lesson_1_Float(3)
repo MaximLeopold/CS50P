@@ -1,0 +1,15 @@
+#Next Chapter: Floats
+#Floats are numbers with decimal points. They represent real numbers for better calculations than integers.
+
+print("I am your personal calculator")
+print("what do you want to add?")
+
+a = float(input("a is equal to? "))
+b = float(input("b is equal to? "))
+
+#The sum of a and b is printed 
+#The round function rounds the float with 2 deciminal places
+#We have to use f string to combine text and variables into one output
+#The f tells python that the numeric variables should be included with the text and not treated as text
+#The : inside the {} tells python to format the variable - in this case a number with a comma as a thousands separator
+print(f"The sum is {round(a +b, 1):,}")

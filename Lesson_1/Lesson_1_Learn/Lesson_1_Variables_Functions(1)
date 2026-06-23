@@ -1,0 +1,16 @@
+#CS50P Lesson 1: Variables and Functions
+#This is a simple program that asks the user for their name and then greets them
+#Using string variable (text)
+name = input("What is your name? ")
+name = name.strip().title()
+#Remove any whitespaces from the input (e.g. if the user accidentally adds a space before or after their name)
+#Uppercase the first letter of each word 
+#Combined two functions together, first strip and then title 
+#Can also combine functions together in one line e.g. name = input("What is your name? ").strip().title()
+print("hello " + name)
+#Remember read right to left
+# The string "How are you doing today? " is passed to the input function, which displays it as a prompt to the user. The user's response is then stored in the variable mood. Finally, the program prints a message that includes the user's response by concatenating the string "I am glad to hear that you are" with the value of the mood variable. 
+mood = input("How are you doing today? ")
+print(f"I am glad to hear that you are {mood}!")
+#The f before the string indicates that it is an f-string, which allows for the inclusion of variables directly within the string using curly braces {} and you do not need to transform the variable into string 
+# E.g. + variable is string e.g. cannot do integer and string together without transforming integer into string first

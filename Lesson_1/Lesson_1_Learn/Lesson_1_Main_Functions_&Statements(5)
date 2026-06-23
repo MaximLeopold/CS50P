@@ -1,0 +1,31 @@
+#Now we learn about main functions and statements
+#A main function serves as the entry point of a program - it is a common way/convention to define a main function to organize the code and improve readability
+#The main function contains the core logic and can call other functions as needed 
+
+def main():
+    #This is the main function where we will put the core logic of the program
+    #We are combining two functions together print and square - the square function is called within the print function (the print function is not doing the actual squaring itself but printing the result of the square function) 
+    #When we call the function square within the print function we are passing the value of the variable "number" into the square function and that function treats the value as the parameter n
+    #Read right to left - python sees the square function and then prints the result of that function
+    number = int(input("Give me a number "))
+    print("The number squared is", square(number))
+
+def square(n):
+    #This function takes in the number n and uses the statement return to return the square of that number to the main function where it can be used - Statments are instructions and perform actions, they do not use () 
+
+    #We use a parameter here because we want to pass in a value to the function when it is called - this allows the function to be flexible and work with different inputs rather than being fixed on a specific variable defined outside the function
+    # n is the parameter that is a placeholder for a value that will be passed into the function when it is called - in this case the variable we defined in the main function (number) is passed into the square function
+    # The parameter is the variable in the function definition and the argument is the actual value passed into the function when it is called
+    #The return statement sends the result back to the main function where it can be used or printed 
+    return n * n 
+
+#Run the function we defined 
+main()
+
+
+
+
+
+
+
+

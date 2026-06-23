@@ -1,0 +1,16 @@
+#Next lesson: Integers
+x = 1
+y = 2 
+z = x + y
+
+print(f"The sum of {x} and {y} is {z} ")
+
+#Now ask the user for two numbers to add together
+#we need to convert the input from string (text) to integer (number) using the int function
+#Otherwise with program will combine two strings and not add two integers (e.g. a = 1 and b =2 will give 12)
+#We are combining two functions togther, first input and then the result is converted to a new variable type (remember read right to left)
+
+print("What other addition do you want to perform? ")
+a = int(input("a is equal to? "))
+b = int(input("b is equal to? "))
+print(f"{a + b}")

@@ -1,0 +1,39 @@
+#We can create our own functions to perform specific tasks
+#Define your own function using def followed by the function name and parentheses. Parentheses can use parameters to pass information into the function. Coluns: indicate the start of the function 
+#Every line of code that is indented after the function is part of that function and will be executed when the function is called (the space between () and : is important)
+
+# Recap functions and variables (string = text and integer = number)
+
+#Create the variable name and assign it to input function
+name = input("What is your name?")
+#Input is stored in the variable name 
+#Must use f to insert variable into the function print's string (that is to be printed 
+print(f"Hello {name}") 
+
+#Ask for the users age with a string and convert the input to an integer 
+age = int(input("What is your age? "))
+
+# Now we will create our own function using def 
+def hello():
+    print(f"Okay so your name is {name} and you are {age} years old. Got it")
+
+#We have created the function and now we will call it so it runs
+hello()
+
+#We create a new variable called question and fill it with the users answer using the input function 
+question = input("What question can I help you with? ")
+
+#Repeat our function and print the question variable - we can not simply add the question variable to the function because it is not defined. We need to call the function again and then print the new variable seperately 
+print(f"Let us answer your question: {question}")
+
+#Now we will create a function that takes in a parameter (a variable that is passed into the function when it is called) - this way the function can be used for different inputs and is not fixed on the specific variables we created earlier
+#The function previously was not flexible and required the variables to be defined before the function was called - now we will create a function that takes in parameters (a variable that is passed into the function when it is called) - this way the function can be used for different inputs and is not fixed on the specific variables we created earlier
+
+#The new function uses the value passed into it when it is called and does not require variables to be defined before the function is called 
+#This refers to "scope" - a variable only existing within the context you define it in - the function can only access variables that are defined within the function or passed into it as parameters  
+
+def answer_question(name, question):
+    print(f"Okay {name}, so to answer {question} I will need to do some research first") 
+
+answer_question(name, question)
+
