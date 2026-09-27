@@ -1,0 +1,34 @@
+#EXTENDED LESSON ON LOOPS (for and while)
+
+#FOR LOOPS
+#Use when you know how often to iterate/execute code 
+
+#We create a list using square brackets 
+def main():
+    guests = ["mario", "Luigi", "Daisy", "Yoshi"]
+    for variable in range(len(guests)): 
+        print(guests[variable])
+
+#we use the range function to decide how many names/items we envoke from our list based on index position - hereby using len to dictate the full length of the list (makes it dynamic if we add or subtract items from our list)
+#we use the current value of variable as an index to retrieve the item/s from the list (go into the list guests and find the item at the position stored in variable and print it) - during each iteration of the for loop variable receives the text number 0,1,2, and then 3
+
+#Envoke the main function 
+main() 
+
+
+#WHILE LOOPS
+#Use when number of iterations/executions is unknown - remember must envoke a condition to stop the loop!
+
+
+from soil import sample #example that imports another function - only for explanatory purposes / it doesn't work 
+
+def main():
+    moisture = sample()
+    print(f"Moisture is {moisture}%")
+
+    #Insert while loop 
+    while moisture > 20: #Once the moisture is not > 20 the loop ends 
+        moisture = sample()
+        print(f"Moisture is {moisture}%")
+
+    print("Time to water") #This executes once the loop ends ie the moisture is not > 20 (This block executes once the while loop has stopped)  

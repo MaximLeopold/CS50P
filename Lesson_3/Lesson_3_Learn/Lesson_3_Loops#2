@@ -1,0 +1,41 @@
+#Let us ask the user how often to repeat a loop 
+
+#Using while True creates an infite loop - it continues to execute the code until the user enters a number greater than 0 - then the break command stops the loop and moves to the next block of code - this is a way to validate user input  
+
+#We use the function int() to convert the users input into an integer and store it in the variable n - we then use the variable n in the For loop
+while True:
+    n = int(input("How often does the dog bark?"))
+    if n > 0:
+        break
+
+for _ in range(n):
+    print ("Woof")
+ 
+
+#We can execute the same goal in a more professional way 
+
+#We create the main function holding the main code/logic of the program
+#We then create a function to get the number from the user and a function to print "Woof" based on the number provided by the user
+
+#The variable number is assigned to the value returned by a new function we created called get_number() - that variable is then passed onto another function we created woof() to print woof based on the input variable 
+def main():
+    number = get_number()
+    woof(number)
+
+#We define the function get_number() we use above - it contains a while loop asking the user to enter a number - this runs untill the user enters a number greater than 0
+#We then use the return command to return the value of n to the main function - this also ends the loop and moves to the next block of code 
+def get_number():
+    while True:
+        n = int(input("How often does the dog bark?"))
+        if n > 0:
+            return n 
+
+#We define the function woof() we use above - it contains a for loop that executes the print command based on the number provided by the user that we place into a range() function
+#We also use the variable _ here to indicate we do not care about the variable and will not use it later in the code
+def woof(n):
+    for _ in range (n):
+        print("Woof")
+
+#Then we call the main function we defined earlier to actually run the code - we create the function first and then call it 
+#The other support functions get_number() and woof() are called within the main function and are already defined - we do not need to cal them again as they run in the main() function 
+main() 

@@ -1,0 +1,67 @@
+#Lesson focus is on loops - Loops allow you to execute a block of code multiple times, which is useful for tasks that require repetition
+
+#1 First type of loop command is "While"
+
+#The "While" loop continues to execute the block of code as long as the condition is true (again and again) - once the condition is false the loop stops executing
+#The "While" loop is used when you do not know how many times you want to execute a block of code
+#You are responsible for creating a condition that will eventually become false - otherwise the loop continues to execute forver
+
+#2 Second type of loop command is "For"
+
+#The "For" loop continues to execute the block of code for each item in a sequence (list, string, range, etc.) - once the loop has iterated over all items in the sequence it stops executing 
+#The "For" loop is used to execute a block of code a specific number of times - when you know how many times to execute the block of code
+#The "For" loop automatically processes the sequence/next items   
+
+#We can use additional commands to control the flow of a loop 
+#Break - stops the loop 
+#Continue - skips the rest of the code in the loop and goes to the next iteration of the loop
+#Return - stops the loop and returns a value to the calling function (if applicable) - this is used in functions to return a value to the main function or calling function
+
+#We can use the while true command to create an infinite loop until a condition is met - we can then use the break command to stop the loop and move onto the next line of code
+#while True:
+    # Do something at least once
+
+    #if finished:
+        #break
+
+#Recap
+#Remember 3 main kind of brackets - Curly Braces {}, Square Brackets [], Parenthesis ()
+#() used for functions, groupings, and methods etc. #do something
+#[] used for lists and indexing #hold items in order and access them by index (press option 5 & 5)
+#{} used for dictionaries and sets #match keys to values or hold unique items
+
+
+#USING LOOPS
+
+
+#Define variable i and enter condition when it does not equal 0 print Meow
+#Indent line to execute only as part of the loop as long as i does not equal 0 
+i = 3 
+while i != 0:
+    print("Meow")
+    i = i - 1
+#Now we said with each iteration of the loop we subtract 1 from I - the loop will stop once the variable equals 0 
+
+#Same logic as above but the block of code executes as long as i is less than 3 - once the condition is not met the block of code does not execute
+i = 0
+while i < 3:
+    print ("Woof")
+    i = i + 1 
+
+#i will take on the value of each item in the list - the code block will execute for each item in the list
+
+for i in [0, 1, 2]:
+    print("Meow") 
+#Here we created a list of 3 items
+
+#We can also use the function range() to create a list of numbers - it creates a sequence of numbers starting from 0 and ending at the number specified (not included that number) - e.g. range(3) creates a list of 0, 1, 2
+#The For loop now executes the block of code based on the number of items in the list we created with the function range(3) 
+for i in range(3):
+    print("Woof")
+
+#If we need to use a variable but do not care about it / or need it later we label it _ (this is a common convention) 
+
+#Alternatively we can use multiplication operater to print something multiple times (this is without using a loop)
+#But we need to clean it up otherwise it prints woofwoofwoof 
+#We use /n to create a new line after each print statement and end="" to remove the extra line at the end of the print statements 
+print ("Woof\n" * 3, end="")  

@@ -1,0 +1,14 @@
+#TUPLES 
+#Taking 2 distinct values and combining them into one single value (e.g. latitude and longitude values for coordinates)
+
+#We combine values within one variable with , similarly to a list 
+def main():
+    coordinates = (42.376, -71.115)
+    latitude, longitude = coordinates #We take the tuple values and unpack them into two new variables latitude and longitude 
+    print(f"latitude: {coordinates[0]}") #We take one value in our tuple coordinates and use the index 0 to print the first value/latitude 
+    print(f"longitude: {coordinates[1]}") # #We take one value in our tuple coordinates and use the index 1 to print the second value/longitude 
+
+main() 
+
+#Tuples vs. Lists 
+#We can't change or edit values inside a tuple 

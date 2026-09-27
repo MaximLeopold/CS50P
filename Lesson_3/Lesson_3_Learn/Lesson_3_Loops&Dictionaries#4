@@ -1,0 +1,58 @@
+#There is another data stucture/variable type called a dictionary 
+#A dict is a collection of key-value pairs - we assign a value to a key (something associated with something else)
+#Similar to a list but instead of using an index to access the items in the collection we use a key to access the value/item associated with that key
+#This is useful when we want to store data that has a relationship between the key and the value/item associated with that key
+#It is more powerful than a list as we can use any type of data as a key (string, number, boolean, etc.) - we can also use any type of data as a value/item associated with that key (string, number, boolean, list, dict, etc.)
+
+
+#CREATING A DICTIONARY
+#Dict use curly braces {} to create a collection of key-value pairs - we use a colon : to separate the key from the value/item associated with that key - we use a comma , to separate each key-value pair in the collection
+#We can write it as horizontal list or as a vertical list - vertical is easier to read and understand 
+students = {
+    "Herman":"Gryffindor",
+    "Peter":"Gryffindor",
+    "Paul":"Ravenclaw",
+    "Mary":"Ravenclaw"
+} 
+
+print(students) #This will print the entire dictionary - all key-value pairs in the collection
+
+
+#ACCESSING ITEMS IN A DICTIONARY
+#We need to index into the dictionary to access the value/item associated with a key
+#We can access the value/item associated with a key in a dictionary by using the key in square brackets []
+print(students["Herman"]) #This will print "Gryffindor" - the key we use is "herman" to access the value/item associated with it in the dict  
+
+
+#We can also use a for loop to iterate over the items in a dictionary
+#When we use a for loop across a dictionary it only iterates over the keys and not the values/items (key=Herman and value = Gryffindor) 
+#Remember we created the variable student in the for loop as temporary variable that takes on the value of each key in the dictionary as the loop iterates over it
+for student in students:
+    print(student)
+
+for student in students:
+    print(student, students[student]) 
+    #This will print the key and the value/item associated with that key in the dict - we use the key to access the value/item associated with that key in the dict
+
+
+#CREATING MORE VALUES/ITEMS IN A DICTIONARY
+#We want to associate multiple things/items with a student 
+#We create a list of dictionaries
+#Each dictionary represents an individual student and contains key-value pairs for the student's name:item, house:item, and patronus:item - we can add more key-value pairs to each dictionary as needed 
+#The square brackets [] are used to create a list - in this case of dictionaries which is each enclosed in curly braces {} and contains key-value pairs
+students = [
+    {"name": "Hermione", "house": "Gryffindor", "patronus": "Lion"},
+    {"name": "Peter", "house": "Gryffindor", "patronus": "Stag"},
+    {"name": "Paul", "house": "Ravenclaw", "patronus": "Eagle"},
+    {"name": "Mary", "house": "Ravenclaw", "patronus": "none"}    
+]
+#We then close the list with the square brackets - we can now access each dictionary in the list by using the index of the list and then access the key-value pairs in the dictionary by using the key in square brackets []    
+
+#We can use a for loop to iterate over the list of dictionaries and access the key-value pairs in each dictionary
+for student in students:
+    print(student["name"]) 
+
+#We add multiple arguments to the print function to print more key-value pairs in each dictionary
+for student in students:
+    print(student["name"], student["house"], student["patronus"])
+

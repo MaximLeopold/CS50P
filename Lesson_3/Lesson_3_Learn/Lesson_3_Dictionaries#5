@@ -1,0 +1,65 @@
+#EXTENDED LESSON ON DICTIONARIES
+
+#Create a dictionary with curly brackets (remember list created with square/flat brackets)
+#We can also add new key-value pairs using syntax (line 8)
+#We can also use the dict.update command to update an existing dictionary with new key-value pars (line 9)
+def main():
+    spacecraft = {"name": "voyager 1","distance": "163"}
+    spacecraft["speed"] = 0.01
+    spacecraft.update({"orbit": "sun", "crew": "5 people"}) 
+    print(create_report(spacecraft))
+
+def create_report(spacecraft):
+    return(
+        f"name: {spacecraft["name"]}"
+        f"distance: {spacecraft["distance"]}"
+        f"speed: {spacecraft["speed"]}"
+    ) 
+
+main()
+
+
+
+#New dictionary 
+distances = {
+    "voyager 1": "100 AU",
+    "voyager 2": "260 AU",
+    "pioneer 10": "45",
+    "pioneer 11": "15"
+}
+
+#New function 
+#We can use keys method - return all keys within a dictionary
+#We access all keys in our distances dictionary and create a for loop to print their distances 
+#Insert a for loop
+def function():
+    for name in distances.keys():
+        print(f"{name} is {distances[name]} AU from eath")
+
+#Calling the actual function 
+function()
+
+
+
+#DICTIONARY METHODS 
+#Functions to manipulate a dictionary 
+#As example with a spelling bee game system 
+#we can use .pop - remove a pair-key / item 
+#We can use .clear - remove all pairs-keys / items 
+#We can use .keys - return all keys within a dictionary
+#We can use .items - returns all keys and items within a dictionary 
+
+#Create a new dictionary
+words = {"pair": 4, "hair": 4, "chair": 5}
+
+def main():
+    print("Welcome to spelling bee")
+    print("your letters are: a i p c r h g")
+
+    while len(words) > 0: #len counts the amount of words in the dictionary 
+        print(f"{len(words)} words left!")
+        guess = input("Guess a word: ") 
+        if guess in words.keys():
+            points = words.pop(guess)
+            print(f"Good job! You scored {points} points")
+

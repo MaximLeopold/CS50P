@@ -1,0 +1,65 @@
+#We define and create a list to store and call items
+#To create a list we use the square brackets [] - we can store any type of data in a list (numbers, strings, booleans, etc.) - we can also store other lists inside a list (nested lists)
+
+students = ["Peter", "Paul", "Mary", "John"]
+print(students) 
+
+#If we have a variable (students) and we want to go inside that variable/list and access/use a specific item in that variable/list we can use the index 
+print(students[0])  #This will print "Peter"
+print(students[1])  #This will print "Paul"
+print(students[2])  #This will print "Mary"
+print(students[3])  #This will print "John"
+
+#We can also use reverse indexing to access items in a list - the last item in the list is -1, the second last item is -2 etc.
+
+print(students[-1]) #This will print "John"
+
+
+#We can also use a for loop to iterate over the items in a list
+#This will now print all items in our list/variable
+#The variable student in the for loop is a temporary variable that takes on the value of each item in the list as the loop iterates over it (always receiving the next value in the variable/list students)
+#We could name this variable anything we want as it is just a temporary variable/placeholder for the value of each item in the list as the loop interates over it
+for student in students:
+    print(student) 
+
+
+#DYNMIC SOLUTION TO PRINT INDEX AND VALUE OF ITEMS IN A LIST
+#We can now create a dynamic solution to print the index of each item in the list and the value of the item in the list
+#There is a function called len() that will return the length of a list
+#This is useful when we want to know how many items are in a list - we can use this in a for loop to iterate over the items in a list based on the length of the list
+
+#Instead of typing out the index of each item in the list we can create a dynamic solution that will work for any length of a list
+#We use the function len() to get the length of the list and use that in the range() function to create a sequence of numbers starting at 0 and ending at the last item/index of the list 
+#We then use that sequence of numbers as the index to access each item in the list and print the index and the value of the item in the list
+#This will work for any length of a list as it is dynamic and will always get the length of the list and create a sequence of numbers based on that length
+for index in range(len(students)):
+    print(index, students[index])
+#The square brackets [] are used to access the item in the list based on the index - index changes during the loop/with each iteration and takes on the value of each item in the sequence created by the range() function
+
+
+
+#LIST COMMANDS/EDITS - several options exist to edit and work with lists 
+#We can extend lists we created with LISTNAME.extend (["XY", "XY"])
+#We can remove items from our lists with LISTNAME.remove (["XY"]) 
+#We can insert an item as a specific place in our list with LISTNAME.insert(0,"XY") (0 is the index value e.g. right now in place 1)
+#We can also flip the items with LISTNAME.reverse() 
+
+
+#LIST METHODS - commands to edit items in a list
+#E.g. using .pop to remove an item 
+#E.g. using .clear to clear the list 
+#E.g. using.append to add an item to the end of the list 
+
+def main():
+    history = []
+
+    while True:
+        action = input("Action: ")
+        if action == "Undo":
+            history.pop()
+            print(f"Undone: {undone}")  
+        elif action ==  "Restart":
+            history.clear()
+        else: 
+            history.append(action)
+        print(history) 
