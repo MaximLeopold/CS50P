@@ -1,0 +1,64 @@
+#THE TASK
+#A machine sells bottles of Coca-Cola (Coke) for 50 cents and only accepts coins in these denominations: 25 cents, 10 cents, and 5 cents.
+#Implement a program that prompts the user to insert a coin, one at a time, each time informing the user of the amount due. Once the user has inputted at least 50 cents, output how many cents in change the user is owed
+#Assume that the user will only input integers, and ignore any integer that isn’t an accepted denomination.
+
+#THOUGHTS...
+#The price is always fixed 50 cent
+
+#As coins (different options) inserted the amount due changes -> we can track this: Start at amount_due 50 and subtract inserted coins or start at amount_inserted and add inserted coins 
+
+#We don't know how many coins the user will input in 25, 10, or 5 cents -> the amount of repetition is unknown therefore we use a while loop not for loop! 
+#The while loop can be something like -> while amount_due > 50: ask for another coin (repeat condition -> then define loop exit condition)
+
+#We have to validate the coins only accept 25, 10, or 5 -> we can insert a conditional: if coin accepted: subtract from aount_due else ignore/do nothing
+
+#We have to calculate change -> the user can go past amount_due 50 cents (e.g. 25 + 10 + 10 + 10)
+#If the value of amount_due goes past 0 / becomes negative this turns into change for the user 
+
+#The solution architecture is something like:
+#Set amount_due to 50
+
+#While amount_due is greater than 0:
+    #display amount_due
+    #ask for a coin
+
+    #if the coin is 25, 10, or 5:
+        #subtract it from amount_due
+    #Else ignore 
+
+#Calculate change from the final amount_due
+#Display the change
+
+
+#SOLUTION
+
+#Define our variable and store the initial amount due
+amount_due = 50 #Already an integer - no conversion needed - alternatively/overkill amount_due = int(50) 
+
+#Implement the while loop as core logic 
+while amount_due > 0: #Condition to continue asking for coins 
+    print(f"Amount due for drink: {amount_due}") #Insert the current value stored in variable amount_due 
+
+    coin = int(input("Insert coin please")) #Create a new variable and store the content as user input
+    #Create the variable inside the loop because we require new input every iterration -> every time the loop repeats we collect a new value for the variable coin / coin only stores the current value of that iterration
+    #Convert because input always stores string and it must be an integer to perform calculations with amount_due 
+    
+    if coin in [25, 10, 5]: #We create our coin check/validation mechanism with conditionals
+        #We use a list as condition but could also say if coin == 25 or coin == 10 or coin == 5 
+        #We could also create a variable named accepted_coins = [25, 10, 5] and say if coin in accepted_coins  
+        amount_due = amount_due - coin #Subtract accepted value stored in coin from variable amount_due 
+    else:
+        print("Not valid - please input a valid coin 25, 10, or 5 cents")
+    
+#We now need code outside the loop that calculates change once we reach the while loop exit condition
+#We know the loop has ended now so amount_due is either == 0 or < 0 
+#We could create a conditional but one line of code here is enough because we can just change the signs (-0 is still 0)
+
+#Create new variable change_owed
+change_owed = abs(amount_due) #We create the absolute value (non negative or amount_due) - we could also just add - infront -amount_due 
+
+#Print the final output
+print(f"Your change: {change_owed}")
+
+

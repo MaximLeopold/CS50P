@@ -1,0 +1,64 @@
+#The TASK
+#It is possible to request a vanity license plate for your car, with your choice of letters and numbers instead of random ones. Among the requirements, though, are:
+#All vanity plates must start with at least two letters
+#Vanity plates may contain a maximum of 6 characters (letters or numbers) and a minimum of 2 characters
+#Numbers cannot be used in the middle of a plate; they must come at the end. For example, AAA222 would be an acceptable … vanity plate; AAA22A would not be acceptable. The first number used cannot be a ‘0’
+#No periods, spaces, or punctuation marks are allowed
+#In plates.py, implement a program that prompts the user for a vanity plate and then output Valid if meets all of the requirements or Invalid if it does not. Assume that any letters in the user’s input will be uppercase
+
+#THOUGHTS...
+#A plate is valid only if all requirements pass (even if one requirement fails = invalid)
+#We can translate the verification/check into 4 tests/stages:
+#Length between 2 and 6 characters (letters and numbers)?
+#First two characters letters?
+#Only letters and numbers?
+#If numbers appear: is the first number not 0 and are all remaining characters before letters?
+
+#The solution architecture is something like...
+
+#SOLUTION
+
+def main():
+    plate = input("Plate: ")
+    if is_valid(plate): #Send the current value of plate into is_valid. If the function returns True, run the following indented code - the purpose of is_valid function is to answer a Yes or No Question (return Boolean value True/False)
+        print("Valid")
+    else:
+        print("Invalid")
+
+
+#We set up our tests what is considered a valid license plate
+def is_valid(s): #The variable/value is given from the main function / what is stored in the variable plate to the variable used in this function (the original variable name is not important to the receiving function)  
+    if len(s) < 2 or len(s)> 6: #Both conditions must include len(s) 
+        return False #Return True or False to the main function (must return a Boolean value: True or False) - Return sends the value back to the main function - the purpose of is_valid is to return a Boolean value either T/F
+    
+    #We implement the next check - we don't need else because the function already ends if invalid condition not met
+    #Reject submission if either of first two characters are not letters - use .isalpha to check for only letters
+    if not s[0].isalpha() or not s[1].isalpha(): #If character 0 or 1 (index of string) are not letters - we can also use [:2] to say the first 2 characters 
+        return False 
+    
+    #We implement the next check
+    #Reject submission if any character is not letter or number - we can use .isalnum() (alphanumeric)
+    if not s.isalnum():
+        return False  
+
+    #We implement the next check
+    #If numbers appear on the plate the following characters can only be numbers not letters and the first number can not equal 0 
+
+    #Create a new Boolean variable
+    number_started = False
+
+    #Examine each character in the plate
+    for character in s:
+        if character.isdigit():
+            if number_started == False:
+                if character == "0":
+                    return False 
+
+                number_started = True
+
+        elif number_started == True:
+            return False 
+
+    return True  
+
+main()

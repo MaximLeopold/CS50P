@@ -1,0 +1,55 @@
+#THE TASK
+#Implement a program that prompts the user for the name of a variable in camel case and outputs the corresponding name in snake case. Assume that the user’s input will indeed be in camel case
+#Camel Case = when words/variables comprise multiple words, whereby the first letter of the first word is lowercase but the first letter of each subsequent word is uppercase (e.g. firstName)
+#Snake Case = words/variables are instead separated by underscores (_), with all letters in lowercase (e.g. first_name)
+
+#THOUGHTS...
+#Given the input: preferedFirstName -> we want: prefered_first_name as output
+#The central task is: inspect an input one letter at a time and build the output progressively
+#Lowercase characters remain unchanged
+#Uppercase characters mark the beginning of a new word (e.g.First)
+#The uppercase character must become lowercase + a _ must be inserted before it (e.g. _first)
+
+#The solution architecture is something like:
+
+#for each character:
+    #if the character is lowercase:
+        #output it unchanged
+    #else:
+        #output "_" followed by its lowercase version
+
+#if character is uppercase:
+    #add "_" and its lowercase version
+#else:
+    #add the character unchanged
+
+#SOLUTION
+
+#Create a new variable asking the user for the CameCase input (we assume the user inputs in CamelCase)
+camel_case = input("CamelCase: ")
+
+#Create an empty string variable that will hold the converted user input
+snake_case = ""
+
+#We take one character at a time from the camelcase via a for loop (character is our made up name for the variable that holds the temporary character/string item in the for loop)
+#Python knows it is examining characters because the variable camel_case always takes a string as input 
+#We are saying for each character inside the string stored in camel_case run the indented code block 
+for character in camel_case:
+    if character.isupper(): #Implementing a conditional if/else
+        snake_case = snake_case + "_" + character.lower() #Convert character to lowercase, place _ before, and add to new string
+    else:
+        snake_case = snake_case + character #If it is not uppercase transfer it unchanged to the new string
+
+#character.lower is a string method/operation (character is the string we are operating on and lower is the method name - () calls/executes the method)
+
+#Then we display the new string - we literally print snake_case: and then add the content of the variable snake_case that was changed/altered  
+print("snake_case:", snake_case) #This works because the variable snake_case is a string
+
+#We could also print it with an f string
+# print(f"snake_case: {snake_case}")
+#The f creates a formatted string and tels python to first evaluate and then insert the value of anything in the curly braces - without the f python treats everything as normal text/string and prints the braces literally "{snake_case}"
+
+
+
+
+

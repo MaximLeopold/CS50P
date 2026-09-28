@@ -1,0 +1,40 @@
+#THE TASK
+#When texting or tweeting, it’s not uncommon to shorten words to save time or space, as by omitting vowels, much like Twitter was originally called twttr
+#In a file called twttr.py, implement a program that prompts the user for a str of text and then outputs that same text but with all vowels (A, E, I, O, and U) omitted, whether inputted in uppercase or lowercase
+
+#THOUGHTS...
+#We can examine a string one character at a time and build a new one to print
+#We will know the string length so we can use a for loop (Python will have a collection of characters to check)
+#We must implement a check/condition to either keep or remove certain characters (remove vowels)
+#We can create a variable containing a list of safe_characters or to_be_removed_characters
+#We transfer the safe vowels into a new string to print
+
+#The solution architecture is something like:
+#Ask the user for text
+#Create an empty results string
+#For each character in the string check aeiou and add remainder to new string 
+
+#SOLUTION
+
+#Ask the user for input and store as variable
+original = input("What would you like to post?")
+
+#Create new string to be updated 
+new = "" 
+
+#Create variable of list of to be removed characters
+to_be_removed = ["a","e","i","o","u"] #Individual string values need "" - otherwise python assumes they are variable names
+
+#Create the main logic in a for loop 
+for character in original: #Characters is our placeholder variable while the loop iterrates over each letter stored in the string variable original 
+    if character.lower()in to_be_removed: #Implementing our conditional with the list of vowels stored as variable earlier - we add .lower() to match the character to the lowercase values in the list we created 
+    #If we used if character == ... we would check if one character equals the entire list 
+        pass #If the character is in the list we do nothing -> we don't put it in the new/to be printed string 
+    else:
+        new = new + character 
+
+#Print the final/new version of the post
+
+print(f"New Tweet: {new}")
+
+
