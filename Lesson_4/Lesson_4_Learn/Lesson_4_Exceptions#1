@@ -1,0 +1,68 @@
+#LESSON 4 on Exceptions
+
+#Exceptions are a way to report that something went wrong while code was running and instead of letting the error end the execution define responses
+#try: contains the code that may fail 
+#except: handles particular type of failure
+#else: runs only if the try block succeeds
+#finally: runs regardless of success or failure (for cleanup
+
+#Exception handling is not about preventing every possible error. It is about distinguishing:
+#Expected operational failures that your program should handle (e.g. as invalid input)
+#Programming bugs that should remain visible so you can fix them
+#Exceptions refer to problems in the code 
+
+
+#Mistake example - if we forget closing "
+#print("hello, word)
+#Execution returns SyntaxError: unterminated string literal (line 16)
+#Synatax error must be fixed yourself -> HOWEVER there are many other errors:
+
+#Indentation error -> indentation missing or inconsistent
+#NameError -> variable or function name doesn't exist
+#TypeError -> operation receives an incompatible type
+#ValueError -> type is acceptable but value is invalid
+#IndexError -> sequence index is outside its valid range
+#KeyError -> dictionary does not contain requested key
+#AttributeError -> object does not have requested attribute or method
+#FileNotFoundError or ModuleNoteFoundError -> Python can't find request file or module
+
+
+#Mistake example
+#x = int(input("What is x? "))
+#print(f"x is {x}")
+
+#What happens if the user inputs a value that is not an integer -> however we use int to automatically convert the input into a set variable  
+#Edge cases / mistakes -> e.g. a float or a string
+#Mistake -> Value error: invalid literal for int() 
+
+#The fix -> error handling -> Exceptions! (programming defensively)
+
+#Example ValueError
+try: #We use the exception try
+    x = int(input("What is x? "))
+    print(f"x is {x}")
+except ValueError: #We tell python what to do for this error (Errors are case sensitive)
+    print("Your input for x is not an integer")
+
+#What if we can't / don't anticipate the exact error? 
+#You can say say "except if anything is wrong" -> However this hides errors that may occur (bad coding practice) -> figure out/anticipate errors and mention explicitly
+
+#Next example NameError 
+try:
+    x = int(input("What is x? ")) #If we enter "cat" -> this is where the ValueError happens -> the variable x is not being defined and disabled the final print function (because cat can't be assigned to an integer)
+except ValueError: 
+    print("Your input for x is not an integer")
+else: #We use else to fix the ValueError -> Else introduces mutual exclusive   
+    print(f"x is {x}")
+
+#Using a while loop -> while True... 
+while True:
+    try:
+        x = int(input("What is x? ")) #We try to take the user input and convert it to integer stored in x 
+    except ValueError: #If a value error occurs print the folowing
+        print("x is not an integer")
+    else: #Associated with try and not with except -> if code/conversion works we break out of the loop and execute print function below 
+        break #Break out of the loop -> otherwise we never break out of the loop even if user input is successfully converted to int.
+    #Break can be used inside of loops or conditionals 
+print(f"x is {x}")
+
