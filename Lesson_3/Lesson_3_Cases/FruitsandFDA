@@ -1,7 +1,33 @@
 #THE TASK
+#Implement a system that prompts the user to input a fruit (case insensitive) and then outputs the number of calories in one portion of that fruit per the FDA information - Assume that user inputs the fruit names exactly as in the poster/data provided
 
 #THOUGHTS
+#We can use a dictionary to associate a fruit with a calory value -> create key-value relationships (e.g. apple -> 130)
+#We create a dictionary with {}
+#The program must handle fruit input case insensitive -> apple, APPPLE, Apple etc. all treated the same
 
 #The solution architecture is something like...
+#Allow the user to look up information
+#System must -> understand fruit asked - go into dictionary - return associated value from fruit key 
+#Therefore we stored fruits lowercase and convert users input with .lowercase 
 
 #SOLUTION 
+
+#Create our dictionary of fruits and associated calory values 
+fruits = {
+    "apple": 130, #Apple is the key and 130 the associated value - remember the , seperates one entry from the next 
+    "bannana": 200, #Python automatically recognizes that we assigned an integer value 
+    "blueberry": 50,
+    "mango": 500,
+    "peach": 25
+}
+
+question = input("What fruit are you consuming? ").lower() #Remember the () activates the operation
+
+#We then use a conditional if
+
+if question in fruits: #If the input is in fruits run this operations -> if not true python skips the code block
+    calories = fruits[question] #[] after a dictionary mean -> look up value associated with this key (dictionary look-up operation)
+    #We create a second variabl here to stored the retrieved value that we then use to print in the next function 
+    print(f"Calories in {question} are {calories}") # {} inside an f string mean -> evaluate expression and insert value into the string 
+
